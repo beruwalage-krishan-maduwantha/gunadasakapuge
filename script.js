@@ -11,17 +11,18 @@ document.addEventListener('DOMContentLoaded', function () {
   document.getElementById('year').textContent = new Date().getFullYear();
 
   var root = document.documentElement;
-  var maxBlur = 28;
-  var minBrightness = 0.35;
+  var maxBlur = 34;
+  var minBrightness = 0.3;
   var ticking = false;
 
   function updateScrollBlur() {
     var scrollableHeight = document.body.scrollHeight - window.innerHeight;
-    var progress = scrollableHeight > 0 ? window.scrollY / (scrollableHeight * 0.75) : 0;
+    var progress = scrollableHeight > 0 ? window.scrollY / (scrollableHeight * 0.35) : 0;
     progress = Math.max(0, Math.min(progress, 1));
+    var eased = 1 - Math.pow(1 - progress, 2);
 
-    root.style.setProperty('--scroll-blur', (progress * maxBlur).toFixed(1) + 'px');
-    root.style.setProperty('--scroll-brightness', (1 - progress * (1 - minBrightness)).toFixed(2));
+    root.style.setProperty('--scroll-blur', (eased * maxBlur).toFixed(1) + 'px');
+    root.style.setProperty('--scroll-brightness', (1 - eased * (1 - minBrightness)).toFixed(2));
     ticking = false;
   }
 
