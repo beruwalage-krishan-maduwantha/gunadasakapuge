@@ -27,6 +27,13 @@ document.addEventListener('DOMContentLoaded', function () {
 
   var navbar = document.querySelector('.site-navbar');
 
+  mainNav.addEventListener('show.bs.collapse', function () {
+    navbar.classList.add('menu-open');
+  });
+  mainNav.addEventListener('hidden.bs.collapse', function () {
+    navbar.classList.remove('menu-open');
+  });
+
   window.addEventListener('scroll', function () {
     if (!ticking) {
       window.requestAnimationFrame(function () {
