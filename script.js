@@ -63,4 +63,29 @@ document.addEventListener('DOMContentLoaded', function () {
       });
     });
   }
+
+  var statNumbers = document.querySelectorAll('.stat-number');
+  var statObserver = new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry) {
+      if (!entry.isIntersecting) return;
+      statNumbers.forEach(function (el) {
+        var target = parseInt(el.getAttribute('data-count-to'), 10);
+        var suffix = el.getAttribute('data-suffix') || '';
+        var duration = 1500;
+        var start = performance.now();
+
+        function tick(now) {
+          var progress = Math.min((now - start) / duration, 1);
+          var eased = 1 - Math.pow(1 - progress, 3);
+          el.textContent = Math.round(eased * target) + suffix;
+          if (progress < 1) window.requestAnimationFrame(tick);
+        }
+        window.requestAnimationFrame(tick);
+      });
+      statObserver.disconnect();
+    });
+  }, { threshold: 0.4 });
+
+  var statsRow = document.querySelector('.stats-row');
+  if (statsRow) statObserver.observe(statsRow);
 });

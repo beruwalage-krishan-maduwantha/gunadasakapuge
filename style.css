@@ -6,6 +6,7 @@
   --color-text-muted: #FFDEBA;
   --font-display: 'Playfair Display', Georgia, serif;
   --font-body: 'Open Sans', Arial, sans-serif;
+  --font-sinhala: 'Abhaya Libre', 'Iskoola Pota', Georgia, serif;
 }
 
 body {
@@ -21,10 +22,17 @@ body {
 .bg-fixed {
   position: fixed;
   inset: -30px;
-  background: url('background_image.jpeg') center 20% / cover no-repeat;
+  background: url('background_image.jpg') center 20% / cover no-repeat;
   filter: blur(var(--scroll-blur, 0px)) brightness(var(--scroll-brightness, 1)) saturate(1.1);
   z-index: -2;
-  will-change: filter;
+  will-change: filter, transform;
+  animation: kenBurns 36s ease-in-out infinite;
+  transform-origin: center;
+}
+
+@keyframes kenBurns {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.08); }
 }
 
 body::before {
@@ -42,14 +50,27 @@ h1, h2, h3, h5 {
   color: var(--color-text);
 }
 
-h2 { font-size: 2.4rem; margin-bottom: 8px; }
+h2 { font-size: 2.4rem; margin-bottom: 8px; position: relative; padding-bottom: 18px; }
+h2::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  width: 0;
+  height: 2px;
+  background: var(--color-cream);
+  transform: translateX(-50%);
+  transition: width 0.9s ease 0.25s;
+}
+h2.in-view::after { width: 60px; }
 h5 { color: var(--color-cream); font-size: 1.2rem; }
 
 .section-sub {
   text-align: center;
   color: var(--color-cream);
-  font-family: var(--font-display);
-  font-style: italic;
+  font-family: var(--font-sinhala);
+  font-style: normal;
+  font-weight: 600;
   font-size: 1.1rem;
   margin-bottom: 48px;
   opacity: 0.9;
@@ -57,7 +78,12 @@ h5 { color: var(--color-cream); font-size: 1.2rem; }
 
 a { color: var(--color-cream); transition: color 0.25s ease, background 0.25s ease; }
 
-.native { color: var(--color-text-muted); font-size: 0.96em; }
+.native {
+  color: var(--color-text-muted);
+  font-size: 0.96em;
+  font-family: var(--font-sinhala);
+  font-style: normal;
+}
 
 /* SCROLL REVEAL */
 .reveal {
@@ -136,7 +162,7 @@ a { color: var(--color-cream); transition: color 0.25s ease, background 0.25s ea
 /* HERO */
 .hero {
   position: relative;
-  min-height: 92vh;
+  min-height: 100vh;
 }
 
 .hero-overlay {
@@ -174,8 +200,9 @@ a { color: var(--color-cream); transition: color 0.25s ease, background 0.25s ea
 .hero h1 { margin-bottom: 6px; }
 
 .hero-native {
-  font-family: var(--font-display);
-  font-style: italic;
+  font-family: var(--font-sinhala);
+  font-style: normal;
+  font-weight: 600;
   font-size: 1.6rem;
   color: var(--color-cream);
   margin: 0 0 18px;
@@ -201,8 +228,27 @@ a { color: var(--color-cream); transition: color 0.25s ease, background 0.25s ea
   font-family: var(--font-display);
   font-style: italic;
   font-weight: 600;
-  border-radius: 0;
+  border-radius: 6px;
+  position: relative;
+  overflow: hidden;
   transition: background 0.3s ease, color 0.3s ease, transform 0.25s ease, box-shadow 0.3s ease;
+}
+
+.btn-cream::before, .btn-outline-cream::before, .btn-cream-outline::before, .btn-cream-outline-block::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -75%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(120deg, transparent, rgba(255,255,255,0.35), transparent);
+  transform: skewX(-20deg);
+  transition: left 0.6s ease;
+  pointer-events: none;
+}
+
+.btn-cream:hover::before, .btn-outline-cream:hover::before, .btn-cream-outline:hover::before, .btn-cream-outline-block:hover::before {
+  left: 125%;
 }
 
 .btn-cream {
@@ -242,8 +288,6 @@ a { color: var(--color-cream); transition: color 0.25s ease, background 0.25s ea
 
 .section-panel {
   background: rgba(0, 0, 0, 0.18);
-  border-top: 1px solid rgba(248, 186, 129, 0.1);
-  border-bottom: 1px solid rgba(248, 186, 129, 0.1);
 }
 
 .prose { max-width: 760px; }
@@ -293,10 +337,9 @@ a { color: var(--color-cream); transition: color 0.25s ease, background 0.25s ea
   justify-content: center;
   font-size: 1.5rem;
   color: var(--color-cream);
-  animation: discSpin 8s linear infinite;
-  animation-play-state: paused;
+  animation: discSpin 14s linear infinite;
 }
-.disco-slide-single:hover .disco-disc { animation-play-state: running; }
+.disco-slide-single:hover .disco-disc { animation-duration: 3s; }
 
 @keyframes discSpin {
   to { transform: rotate(360deg); }
@@ -362,6 +405,31 @@ a { color: var(--color-cream); transition: color 0.25s ease, background 0.25s ea
 .disco-year-strip button:hover { color: var(--color-text); }
 .disco-year-strip button.active { color: var(--color-cream); border-bottom-color: var(--color-cream); }
 
+/* STATS */
+.stats-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 30px;
+  max-width: 860px;
+  margin: 56px auto 0;
+  text-align: center;
+}
+.stat-number {
+  display: block;
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 700;
+  font-size: 2.6rem;
+  color: var(--color-cream);
+  text-shadow: 0 0 24px rgba(248, 186, 129, 0.35);
+}
+.stat-label {
+  color: var(--color-text-muted);
+  font-size: 0.85rem;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
 /* FILMS & STAGE */
 #films h3 { font-size: 1.3rem; margin-bottom: 20px; }
 #films li { margin-bottom: 14px; color: var(--color-text); }
@@ -370,6 +438,7 @@ a { color: var(--color-cream); transition: color 0.25s ease, background 0.25s ea
 .award-card {
   background: rgba(248, 186, 129, 0.05);
   border-left: 2px solid var(--color-cream);
+  border-radius: 0 6px 6px 0;
   padding: 22px 26px;
   transition: transform 0.3s ease, background 0.3s ease;
 }
@@ -415,6 +484,7 @@ a { color: var(--color-cream); transition: color 0.25s ease, background 0.25s ea
 .footer-social a {
   padding: 8px 18px;
   border: 1px solid rgba(248, 186, 129, 0.3);
+  border-radius: 6px;
   font-family: var(--font-display);
   font-style: italic;
   font-size: 0.9rem;
@@ -441,4 +511,5 @@ a { color: var(--color-cream); transition: color 0.25s ease, background 0.25s ea
 
 @media (prefers-reduced-motion: reduce) {
   .reveal, .hero-anim { opacity: 1; transform: none; animation: none; transition: none; }
+  .bg-fixed, .disco-disc, h2::after { animation: none; transition: none; }
 }
