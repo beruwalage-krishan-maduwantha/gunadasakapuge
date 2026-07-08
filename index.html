@@ -19,7 +19,7 @@
 <!-- NAVBAR -->
 <nav class="navbar navbar-expand-lg navbar-dark fixed-top site-navbar">
   <div class="container">
-    <a class="navbar-brand" href="#top">GUNADASA KAPUGE</a>
+    <a class="navbar-brand" href="#top"><img src="logo.png" alt="Gunadasa Kapuge" class="brand-logo">GUNADASA KAPUGE</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav" aria-label="Toggle navigation menu">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -67,10 +67,10 @@
       <div class="row justify-content-center">
         <div class="col-md-6">
           <div class="d-grid gap-3">
-            <a class="btn btn-cream-outline-block" href="https://open.spotify.com/search/Gunadasa%20Kapuge" target="_blank" rel="noopener">Spotify</a>
-            <a class="btn btn-cream-outline-block" href="https://www.youtube.com/results?search_query=Gunadasa+Kapuge" target="_blank" rel="noopener">YouTube</a>
-            <a class="btn btn-cream-outline-block" href="https://music.apple.com/search?term=Gunadasa%20Kapuge" target="_blank" rel="noopener">Apple Music</a>
-            <a class="btn btn-cream-outline-block" href="https://www.amazon.com/s?k=Gunadasa+Kapuge" target="_blank" rel="noopener">Amazon Music</a>
+            <a class="btn btn-cream-outline-block platform-btn platform-spotify" href="https://open.spotify.com/search/Gunadasa%20Kapuge" target="_blank" rel="noopener"><i class="bi bi-spotify"></i><span>Spotify</span></a>
+            <a class="btn btn-cream-outline-block platform-btn platform-youtube" href="https://www.youtube.com/results?search_query=Gunadasa+Kapuge" target="_blank" rel="noopener"><i class="bi bi-youtube"></i><span>YouTube</span></a>
+            <a class="btn btn-cream-outline-block platform-btn platform-apple" href="https://music.apple.com/search?term=Gunadasa%20Kapuge" target="_blank" rel="noopener"><i class="bi bi-apple"></i><span>Apple Music</span></a>
+            <a class="btn btn-cream-outline-block platform-btn platform-amazon" href="https://www.amazon.com/s?k=Gunadasa+Kapuge" target="_blank" rel="noopener"><i class="bi bi-amazon"></i><span>Amazon Music</span></a>
           </div>
         </div>
       </div>
@@ -121,97 +121,80 @@
       <h2 class="text-center reveal">Discography</h2>
       <p class="section-sub reveal">Follow Gunadasa Through The Years &mdash; වසර ගණනාවක ගමන</p>
 
-      <div id="discoCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="4000">
-        <div class="carousel-inner">
+      <div class="disco-marquee-outer">
+        <div class="disco-marquee-track" id="discoTrack">
 
-          <div class="carousel-item active">
-            <div class="disco-slide-single mx-auto">
-              <div class="disco-disc"><i class="bi bi-vinyl-fill"></i></div>
-              <span class="disco-year-big">1980</span>
-              <h3>Dhampatin Laa Sandha</h3>
-              <p class="native">දම්පාටින් ලා සඳ</p>
-              <a class="btn btn-cream-outline disco-listen" href="https://open.spotify.com/search/Dhampatin%20Laa%20Sandha%20Gunadasa%20Kapuge" target="_blank" rel="noopener"><i class="bi bi-play-fill me-1"></i>Listen on Spotify</a>
+          <div class="disco-card">
+            <div class="disco-cover-wrap">
+              <img src="Discography/dhampatin-laa-sandha.jpg" alt="Dhampatin Laa Sandha cover" class="disco-cover-sq">
+              <a class="disco-play-overlay" href="https://open.spotify.com/search/Dhampatin%20Laa%20Sandha%20Gunadasa%20Kapuge" target="_blank" rel="noopener"><i class="bi bi-play-fill me-1"></i>Listen</a>
             </div>
+            <div class="disco-card-year">1980</div>
+            <h3>Dhampatin Laa Sandha</h3>
+            <p class="native">දම්පාටින් ලා සඳ</p>
           </div>
 
-          <div class="carousel-item">
-            <div class="disco-slide-single mx-auto">
-              <div class="disco-disc"><i class="bi bi-vinyl-fill"></i></div>
-              <span class="disco-year-big">1981</span>
-              <h3>Seethala Sanda Eliye</h3>
-              <p class="native">සීතල සඳ එළියේ</p>
-              <a class="btn btn-cream-outline disco-listen" href="https://open.spotify.com/search/Seethala%20Sanda%20Eliye%20Gunadasa%20Kapuge" target="_blank" rel="noopener"><i class="bi bi-play-fill me-1"></i>Listen on Spotify</a>
+          <div class="disco-card">
+            <div class="disco-cover-wrap">
+              <img src="Discography/seethala-sanda-eliye.jpg" alt="Seethala Sanda Eliye cover" class="disco-cover-sq">
+              <a class="disco-play-overlay" href="https://open.spotify.com/search/Seethala%20Sanda%20Eliye%20Gunadasa%20Kapuge" target="_blank" rel="noopener"><i class="bi bi-play-fill me-1"></i>Listen</a>
             </div>
+            <div class="disco-card-year">1981</div>
+            <h3>Seethala Sanda Eliye</h3>
+            <p class="native">සීතල සඳ එළියේ</p>
           </div>
 
-          <div class="carousel-item">
-            <div class="disco-slide-single mx-auto">
-              <div class="disco-disc"><i class="bi bi-vinyl-fill"></i></div>
-              <span class="disco-year-big">1983</span>
-              <h3>Unmada Sithuwam</h3>
-              <p class="native">උන්මාද සිතුවම්</p>
-              <a class="btn btn-cream-outline disco-listen" href="https://open.spotify.com/search/Unmada%20Sithuwam%20Gunadasa%20Kapuge" target="_blank" rel="noopener"><i class="bi bi-play-fill me-1"></i>Listen on Spotify</a>
+          <div class="disco-card">
+            <div class="disco-cover-wrap">
+              <img src="Discography/unmada-sithuwam.jpg" alt="Unmada Sithuwam cover" class="disco-cover-sq">
+              <a class="disco-play-overlay" href="https://open.spotify.com/search/Unmada%20Sithuwam%20Gunadasa%20Kapuge" target="_blank" rel="noopener"><i class="bi bi-play-fill me-1"></i>Listen</a>
             </div>
+            <div class="disco-card-year">1983</div>
+            <h3>Unmada Sithuwam</h3>
+            <p class="native">උන්මාද සිතුවම්</p>
           </div>
 
-          <div class="carousel-item">
-            <div class="disco-slide-single mx-auto">
-              <div class="disco-disc"><i class="bi bi-vinyl-fill"></i></div>
-              <span class="disco-year-big">1990</span>
-              <h3>Kampana</h3>
-              <p class="native">කම්පන</p>
-              <a class="btn btn-cream-outline disco-listen" href="https://open.spotify.com/search/Kampana%20Gunadasa%20Kapuge" target="_blank" rel="noopener"><i class="bi bi-play-fill me-1"></i>Listen on Spotify</a>
+          <div class="disco-card">
+            <div class="disco-cover-wrap">
+              <img src="Discography/kampana.jpg" alt="Kampana cover" class="disco-cover-sq">
+              <a class="disco-play-overlay" href="https://open.spotify.com/search/Kampana%20Gunadasa%20Kapuge" target="_blank" rel="noopener"><i class="bi bi-play-fill me-1"></i>Listen</a>
             </div>
+            <div class="disco-card-year">1990</div>
+            <h3>Kampana</h3>
+            <p class="native">කම්පන</p>
           </div>
 
-          <div class="carousel-item">
-            <div class="disco-slide-single mx-auto">
-              <div class="disco-disc"><i class="bi bi-vinyl-fill"></i></div>
-              <span class="disco-year-big">1990</span>
-              <h3>Piya Satahan</h3>
-              <p class="native">පිය සටහන්</p>
-              <a class="btn btn-cream-outline disco-listen" href="https://open.spotify.com/search/Piya%20Satahan%20Gunadasa%20Kapuge" target="_blank" rel="noopener"><i class="bi bi-play-fill me-1"></i>Listen on Spotify</a>
+          <div class="disco-card">
+            <div class="disco-cover-wrap">
+              <img src="Discography/piya-satahan.jpg" alt="Piya Satahan cover" class="disco-cover-sq">
+              <a class="disco-play-overlay" href="https://open.spotify.com/search/Piya%20Satahan%20Gunadasa%20Kapuge" target="_blank" rel="noopener"><i class="bi bi-play-fill me-1"></i>Listen</a>
             </div>
+            <div class="disco-card-year">1990</div>
+            <h3>Piya Satahan</h3>
+            <p class="native">පිය සටහන්</p>
           </div>
 
-          <div class="carousel-item">
-            <div class="disco-slide-single mx-auto">
-              <div class="disco-disc"><i class="bi bi-vinyl-fill"></i></div>
-              <span class="disco-year-big">1999</span>
-              <h3>Irabatu Taruwa</h3>
-              <p class="native">ඉරබටු තරුව</p>
-              <a class="btn btn-cream-outline disco-listen" href="https://open.spotify.com/search/Irabatu%20Taruwa%20Gunadasa%20Kapuge" target="_blank" rel="noopener"><i class="bi bi-play-fill me-1"></i>Listen on Spotify</a>
+          <div class="disco-card">
+            <div class="disco-cover-wrap">
+              <img src="Discography/irabatu-taruwa.jpg" alt="Irabatu Taruwa cover" class="disco-cover-sq">
+              <a class="disco-play-overlay" href="https://open.spotify.com/search/Irabatu%20Taruwa%20Gunadasa%20Kapuge" target="_blank" rel="noopener"><i class="bi bi-play-fill me-1"></i>Listen</a>
             </div>
+            <div class="disco-card-year">1999</div>
+            <h3>Irabatu Taruwa</h3>
+            <p class="native">ඉරබටු තරුව</p>
           </div>
 
-          <div class="carousel-item">
-            <div class="disco-slide-single mx-auto">
-              <div class="disco-disc"><i class="bi bi-vinyl-fill"></i></div>
-              <span class="disco-year-big">2000</span>
-              <h3>Sanda Ree Sihine</h3>
-              <p class="native">සඳ රෑ සිහිනේ</p>
-              <a class="btn btn-cream-outline disco-listen" href="https://open.spotify.com/search/Sanda%20Ree%20Sihine%20Gunadasa%20Kapuge" target="_blank" rel="noopener"><i class="bi bi-play-fill me-1"></i>Listen on Spotify</a>
+          <div class="disco-card">
+            <div class="disco-cover-wrap">
+              <img src="Discography/dhampatin-laa-sandha.jpg" alt="Sanda Ree Sihine cover" class="disco-cover-sq">
+              <a class="disco-play-overlay" href="https://open.spotify.com/search/Sanda%20Ree%20Sihine%20Gunadasa%20Kapuge" target="_blank" rel="noopener"><i class="bi bi-play-fill me-1"></i>Listen</a>
             </div>
+            <div class="disco-card-year">2000</div>
+            <h3>Sanda Ree Sihine</h3>
+            <p class="native">සඳ රෑ සිහිනේ</p>
           </div>
 
         </div>
-
-        <button class="carousel-control-prev" type="button" data-bs-target="#discoCarousel" data-bs-slide="prev" aria-label="Previous album">
-          <span class="carousel-control-prev-icon"></span>
-        </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#discoCarousel" data-bs-slide="next" aria-label="Next album">
-          <span class="carousel-control-next-icon"></span>
-        </button>
-      </div>
-
-      <div class="disco-year-strip">
-        <button type="button" data-bs-target="#discoCarousel" data-bs-slide-to="0" class="active">1980</button>
-        <button type="button" data-bs-target="#discoCarousel" data-bs-slide-to="1">1981</button>
-        <button type="button" data-bs-target="#discoCarousel" data-bs-slide-to="2">1983</button>
-        <button type="button" data-bs-target="#discoCarousel" data-bs-slide-to="3">1990</button>
-        <button type="button" data-bs-target="#discoCarousel" data-bs-slide-to="4">1990</button>
-        <button type="button" data-bs-target="#discoCarousel" data-bs-slide-to="5">1999</button>
-        <button type="button" data-bs-target="#discoCarousel" data-bs-slide-to="6">2000</button>
       </div>
     </div>
   </section>
@@ -285,6 +268,27 @@
     </div>
   </section>
 
+  <!-- ARTISTRY -->
+  <section id="artistry" class="section artistry-section">
+    <div class="artistry-signature"></div>
+    <div class="container">
+      <h2 class="text-center reveal">His Instrument, His Voice</h2>
+      <p class="section-sub reveal">ශිල්පය හා හඬ</p>
+
+      <div class="row align-items-center g-5">
+        <div class="col-lg-6 reveal">
+          <div class="prose">
+            <p>Beyond his singing, Kapuge was an accomplished player of the tabla and sitar, weaving their tones into his own compositions. His instrument was never just an accessory to his voice &mdash; it was a second language, carrying the same philosophical weight as his lyrics.</p>
+            <p class="native">ගායනයට අමතරව, කපුගේ තබ්ලා සහ සිතාර් වාදනයේද දක්ෂයෙකි. ඔහුගේ නිර්මාණවලට ඒ භාණ්ඩවල ස්වර මුසු කළේය. ඔහුට වාදකය හුදෙක් හඬට උපකරණයක් නොව, පද වැල්වල ම දාර්ශනික බර දැරූ දෙවන භාෂාවක් විය.</p>
+          </div>
+        </div>
+        <div class="col-lg-6 text-center reveal">
+          <img src="artwork.png" alt="Gunadasa Kapuge portrait with sitar" class="artistry-image">
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- LEGACY -->
   <section id="legacy" class="section legacy text-center">
     <div class="container">
@@ -298,6 +302,7 @@
 <!-- FOOTER -->
 <footer id="contact" class="site-footer">
   <div class="container">
+    <img src="logo.png" alt="Gunadasa Kapuge" class="footer-logo reveal">
     <div class="row text-center text-md-start g-5">
       <div class="col-md-4 reveal">
         <h5>General Inquiries</h5>
@@ -306,14 +311,14 @@
       </div>
       <div class="col-md-4 reveal">
         <h5>Follow</h5>
-        <div class="d-flex gap-2 flex-wrap justify-content-center justify-content-md-start footer-social">
+        <div class="footer-social-grid footer-social">
           <a href="https://www.youtube.com/results?search_query=Gunadasa+Kapuge" target="_blank" rel="noopener"><i class="bi bi-youtube me-1"></i> YouTube</a>
           <a href="https://open.spotify.com/search/Gunadasa%20Kapuge" target="_blank" rel="noopener"><i class="bi bi-spotify me-1"></i> Spotify</a>
           <a href="https://music.apple.com/search?term=Gunadasa%20Kapuge" target="_blank" rel="noopener"><i class="bi bi-apple me-1"></i> Apple Music</a>
           <a href="https://www.amazon.com/s?k=Gunadasa+Kapuge" target="_blank" rel="noopener"><i class="bi bi-amazon me-1"></i> Amazon Music</a>
         </div>
       </div>
-      <div class="col-md-4 reveal">
+      <div class="col-md-3 offset-md-1 reveal">
         <h5>In Loving Memory</h5>
         <p class="footer-note mb-0">1945 &ndash; 2003</p>
         <p class="native">ආදරයෙන් සිහිපත් කරමින්</p>

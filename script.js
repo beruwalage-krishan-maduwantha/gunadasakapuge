@@ -53,14 +53,11 @@ document.addEventListener('DOMContentLoaded', function () {
     revealObserver.observe(el);
   });
 
-  var discoCarouselEl = document.getElementById('discoCarousel');
-  var yearStripButtons = document.querySelectorAll('.disco-year-strip button');
-
-  if (discoCarouselEl && yearStripButtons.length) {
-    discoCarouselEl.addEventListener('slide.bs.carousel', function (e) {
-      yearStripButtons.forEach(function (btn, i) {
-        btn.classList.toggle('active', i === e.to);
-      });
+  var discoTrack = document.getElementById('discoTrack');
+  if (discoTrack) {
+    var originalCards = Array.prototype.slice.call(discoTrack.children);
+    originalCards.forEach(function (card) {
+      discoTrack.appendChild(card.cloneNode(true));
     });
   }
 
