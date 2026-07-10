@@ -69,6 +69,14 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   }
 
+  var stageTrack = document.getElementById('stageTrack');
+  if (stageTrack) {
+    var originalStageCards = Array.prototype.slice.call(stageTrack.children);
+    originalStageCards.forEach(function (card) {
+      stageTrack.appendChild(card.cloneNode(true));
+    });
+  }
+
   var statNumbers = document.querySelectorAll('.stat-number');
   var statObserver = new IntersectionObserver(function (entries) {
     entries.forEach(function (entry) {
@@ -93,4 +101,53 @@ document.addEventListener('DOMContentLoaded', function () {
 
   var statsRow = document.querySelector('.stats-row');
   if (statsRow) statObserver.observe(statsRow);
+
+  var lyricQuote = document.querySelector('.lyric-quote');
+  if (lyricQuote) {
+    var lyricLines = Array.prototype.slice.call(lyricQuote.querySelectorAll('p'));
+    var lyricCite = lyricQuote.querySelector('cite');
+
+    var hasSegmenter = typeof Intl !== 'undefined' && typeof Intl.Segmenter === 'function';
+    var segmenter = hasSegmenter ? new Intl.Segmenter('si', { granularity: 'grapheme' }) : null;
+
+    function toGraphemes(str) {
+      if (segmenter) {
+        return Array.from(segmenter.segment(str), function (s) { return s.segment; });
+      }
+      return Array.from(str);
+    }
+
+    var allChars = [];
+    lyricLines.forEach(function (el) {
+      var text = el.textContent;
+      el.textContent = '';
+      toGraphemes(text).forEach(function (g) {
+        var span = document.createElement('span');
+        span.className = 'lyric-char';
+        span.textContent = g === ' ' ? ' ' : g;
+        el.appendChild(span);
+        allChars.push(span);
+      });
+    });
+
+    function revealChar(index) {
+      if (index >= allChars.length) {
+        if (lyricCite) lyricCite.classList.add('show');
+        return;
+      }
+      allChars[index].classList.add('lit');
+      setTimeout(function () { revealChar(index + 1); }, 45);
+    }
+
+    var lyricObserver = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          revealChar(0);
+          lyricObserver.disconnect();
+        }
+      });
+    }, { threshold: 0.4 });
+
+    lyricObserver.observe(lyricQuote);
+  }
 });

@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gunadasa Kapuge | ගුණදාස කපුගේ</title>
+
+<link rel="icon" type="image/png" href="favicon.png">
+<link rel="apple-touch-icon" href="favicon.png">
+
+<link rel="preload" as="image" href="background_image.jpg">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400;1,600&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+
+<style>
+  @font-face {
+    font-family: 'Yaldevi Local';
+    src: url('fonts/Yaldevi.woff2') format('woff2');
+    font-weight: 400 700;
+    font-display: swap;
+    unicode-range: U+0964-0965, U+0D81-0DF4, U+1CF2, U+200C-200D, U+25CC, U+111E1-111F4;
+  }
+
+  :root {
+    --color-cream: #F8BA81;
+    --color-cream-dark: #FFDEBA;
+    --color-dark: #24192A;
+    --color-text: #FFFFFF;
+    --color-text-muted: #FFDEBA;
+    --font-display: 'Playfair Display', Georgia, serif;
+    --font-body: 'Open Sans', Arial, sans-serif;
+    --font-sinhala: 'Yaldevi Local', 'Open Sans', sans-serif;
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-body);
+    color: var(--color-text);
+    background: var(--color-dark);
+    overflow-x: hidden;
+  }
+
+  .bg-fixed {
+    position: fixed;
+    inset: -30px;
+    background: url('background_image.jpg') center 20% / cover no-repeat;
+    filter: blur(6px) brightness(0.4) saturate(1.1);
+    z-index: -2;
+    animation: kenBurns 36s ease-in-out infinite;
+    transform-origin: center;
+  }
+
+  @keyframes kenBurns {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.08); }
+  }
+
+  body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background: rgba(36, 25, 42, 0.45);
+    z-index: -1;
+  }
+
+  .coming-soon {
+    text-align: center;
+    padding: 32px;
+    max-width: 640px;
+    animation: fadeUp 1.1s ease both;
+  }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .brand-logo {
+    width: 72px;
+    height: 72px;
+    object-fit: contain;
+    margin-bottom: 18px;
+  }
+
+  .brand-name {
+    font-family: var(--font-display);
+    font-style: italic;
+    font-weight: 600;
+    font-size: 1.3rem;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--color-cream-dark);
+    margin: 0 0 40px;
+  }
+
+  h1 {
+    font-family: var(--font-display);
+    font-style: italic;
+    font-weight: 700;
+    font-size: clamp(2.6rem, 6vw, 4.2rem);
+    margin: 0 0 12px;
+    color: var(--color-text);
+  }
+
+  .native-line {
+    font-family: var(--font-sinhala);
+    font-size: 1.3rem;
+    color: var(--color-cream);
+    margin: 0 0 28px;
+  }
+
+  .tagline {
+    font-size: 1.05rem;
+    color: var(--color-text-muted);
+    line-height: 1.7;
+    margin: 0 auto 36px;
+    max-width: 460px;
+  }
+
+  .social-row {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    font-size: 1.35rem;
+  }
+
+  .social-row a {
+    color: var(--color-cream);
+    text-decoration: none;
+    transition: color 0.25s ease, transform 0.25s ease;
+    display: inline-flex;
+  }
+
+  .social-row a:hover {
+    color: var(--color-cream-dark);
+    transform: translateY(-3px);
+  }
+</style>
+</head>
+<body>
+
+<div class="bg-fixed"></div>
+
+<div class="coming-soon">
+  <img src="logo.png" alt="Gunadasa Kapuge" class="brand-logo">
+  <p class="brand-name">Gunadasa Kapuge</p>
+
+  <h1>Coming Soon</h1>
+  <p class="native-line">නව වෙබ් අඩවිය ඉතාමත් ඉක්මනින්</p>
+  <p class="tagline">A tribute to the voice, the philosophy, and the timeless music of Gunadasa Kapuge &mdash; arriving soon.</p>
+
+  <div class="social-row">
+    <a href="https://www.youtube.com" target="_blank" rel="noopener" aria-label="YouTube"><i class="bi bi-youtube"></i></a>
+    <a href="https://open.spotify.com" target="_blank" rel="noopener" aria-label="Spotify"><i class="bi bi-spotify"></i></a>
+    <a href="https://music.apple.com" target="_blank" rel="noopener" aria-label="Apple Music"><i class="bi bi-apple"></i></a>
+    <a href="https://music.amazon.com" target="_blank" rel="noopener" aria-label="Amazon Music"><i class="bi bi-amazon"></i></a>
+  </div>
+</div>
+
+</body>
+</html>

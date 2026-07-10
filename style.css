@@ -1,3 +1,11 @@
+@font-face {
+  font-family: 'Yaldevi Local';
+  src: url('fonts/Yaldevi.woff2') format('woff2');
+  font-weight: 400 700;
+  font-display: swap;
+  unicode-range: U+0964-0965, U+0D81-0DF4, U+1CF2, U+200C-200D, U+25CC, U+111E1-111F4;
+}
+
 :root {
   --color-cream: #F8BA81;
   --color-cream-dark: #FFDEBA;
@@ -6,7 +14,7 @@
   --color-text-muted: #FFDEBA;
   --font-display: 'Playfair Display', Georgia, serif;
   --font-body: 'Open Sans', Arial, sans-serif;
-  --font-sinhala: 'Abhaya Libre', 'Iskoola Pota', Georgia, serif;
+  --font-sinhala: 'Yaldevi Local', 'Open Sans', sans-serif;
 }
 
 body {
@@ -208,18 +216,18 @@ a { color: var(--color-cream); transition: color 0.25s ease, background 0.25s ea
   letter-spacing: 4px;
   text-transform: uppercase;
   font-size: 0.8rem;
-  color: var(--color-cream);
+  color: #FFFFFF;
   margin-bottom: 14px;
 }
 
-.hero h1 { margin-bottom: 6px; }
+.hero h1 { margin-bottom: 6px; color: var(--color-cream-dark); }
 
 .hero-native {
   font-family: var(--font-sinhala);
   font-style: normal;
   font-weight: 600;
   font-size: 1.6rem;
-  color: var(--color-cream);
+  color: #FFFFFF;
   margin: 0 0 18px;
 }
 
@@ -227,14 +235,14 @@ a { color: var(--color-cream); transition: color 0.25s ease, background 0.25s ea
   font-family: var(--font-display);
   font-style: italic;
   font-size: 1.25rem;
-  color: var(--color-text);
+  color: #FFFFFF;
   margin-bottom: 22px;
 }
 
 .hero-desc {
   position: relative;
   max-width: 620px;
-  color: var(--color-text-muted);
+  color: var(--color-cream-dark);
   font-size: 1.14rem;
   line-height: 1.95;
   letter-spacing: 0.15px;
@@ -251,7 +259,7 @@ a { color: var(--color-cream); transition: color 0.25s ease, background 0.25s ea
   font-weight: 700;
   font-size: 3rem;
   line-height: 1;
-  color: var(--color-cream);
+  color: #FFFFFF;
   opacity: 0.7;
   margin-bottom: 4px;
 }
@@ -440,6 +448,45 @@ a { color: var(--color-cream); transition: color 0.25s ease, background 0.25s ea
 .disco-card h3 { font-size: 1.1rem; margin: 4px 0 2px; }
 .disco-card .native { display: block; font-size: 0.9em; }
 
+.stage-marquee-outer {
+  overflow: hidden;
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent);
+  mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent);
+}
+
+.stage-marquee-track {
+  display: flex;
+  gap: 22px;
+  width: max-content;
+  padding: 6px 4px 10px;
+  animation: stageMarquee 32s linear infinite;
+}
+
+.stage-marquee-outer:hover .stage-marquee-track {
+  animation-play-state: paused;
+}
+
+@keyframes stageMarquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+.stage-card {
+  flex: 0 0 240px;
+  text-align: center;
+  padding: 20px 24px;
+  transition: transform 0.3s ease;
+}
+.stage-card:hover {
+  transform: translateY(-6px);
+}
+.stage-card h4 { margin: 0 0 4px; font-size: 1.2rem; }
+.stage-card .native { display: block; font-size: 1.2rem; margin: 0; }
+
+@media (max-width: 767px) {
+  .stage-card { flex-basis: 190px; padding: 16px 18px; }
+}
+
 @media (max-width: 767px) {
   .disco-card { flex-basis: 210px; }
 }
@@ -470,8 +517,82 @@ a { color: var(--color-cream); transition: color 0.25s ease, background 0.25s ea
 }
 
 /* FILMS & STAGE */
-#films h3 { font-size: 1.3rem; margin-bottom: 20px; }
-#films li { margin-bottom: 14px; color: var(--color-text); }
+.media-group-title {
+  text-align: center;
+  font-size: 1.4rem;
+  margin-bottom: 36px;
+}
+.media-group-title-spaced { margin-top: 70px; }
+
+.media-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 28px;
+  max-width: 1080px;
+  margin: 0 auto;
+}
+
+.media-card {
+  text-align: center;
+}
+
+.media-cover-wrap {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  overflow: hidden;
+  border: 1px solid rgba(248, 186, 129, 0.3);
+  background: linear-gradient(160deg, rgba(248, 186, 129, 0.12), rgba(248, 186, 129, 0.02));
+  box-shadow: 0 16px 34px rgba(0, 0, 0, 0.35);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.media-card:hover .media-cover-wrap {
+  transform: translateY(-6px);
+  box-shadow: 0 22px 44px rgba(0, 0, 0, 0.45);
+}
+
+.media-cover-placeholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.6rem;
+  color: var(--color-cream);
+}
+
+.media-cover-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.media-card-year {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 700;
+  color: var(--color-cream);
+  font-size: 0.95rem;
+  margin-top: 16px;
+}
+
+.media-card h4 {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 600;
+  color: var(--color-text);
+  font-size: 1.05rem;
+  margin: 6px 0 2px;
+}
+
+.media-card .native { display: block; font-size: 0.85em; }
+
+.media-role {
+  color: var(--color-text-muted);
+  font-size: 0.8rem;
+  margin-top: 2px;
+}
 
 /* AWARDS */
 .award-card {
@@ -504,16 +625,102 @@ a { color: var(--color-cream); transition: color 0.25s ease, background 0.25s ea
 .artistry-signature {
   position: absolute;
   inset: 0;
-  background: url('signature.png') center / 65% no-repeat;
-  opacity: 0.08;
+  background: url('signature.png') 58% center / 42% no-repeat;
+  opacity: 0.12;
   pointer-events: none;
 }
 
 .artistry-image {
   max-width: 100%;
-  max-height: 520px;
+  max-height: 600px;
   width: auto;
   filter: drop-shadow(0 25px 45px rgba(0,0,0,0.5));
+}
+
+.lyric-quote {
+  position: relative;
+  width: 100%;
+  max-width: none;
+  margin: 0;
+  padding: 34px 24px 24px 48px;
+  border-left: 2px solid transparent;
+  border-image: linear-gradient(180deg, var(--color-cream), rgba(248, 186, 129, 0)) 1;
+}
+
+.lyric-quote::before {
+  content: "\201C";
+  position: absolute;
+  top: -30px;
+  left: 12px;
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 9rem;
+  line-height: 1;
+  color: var(--color-cream);
+  opacity: 0.16;
+  z-index: -1;
+  pointer-events: none;
+}
+
+.lyric-stanza { margin-bottom: 34px; }
+.lyric-stanza:last-of-type { margin-bottom: 0; }
+
+.lyric-quote p {
+  position: relative;
+  font-family: var(--font-sinhala);
+  font-style: normal;
+  font-weight: 400;
+  font-size: 2.1rem;
+  line-height: 1.8;
+  letter-spacing: 0.3px;
+  margin: 0 0 10px;
+  color: var(--color-text);
+  text-shadow: 0 2px 18px rgba(248, 186, 129, 0.18);
+}
+
+.lyric-stanza p:nth-child(odd) { color: var(--color-cream); }
+
+.lyric-char {
+  display: inline-block;
+  white-space: pre;
+  opacity: 0.14;
+  transform: translateY(10px);
+  filter: blur(3px);
+  text-shadow: none;
+  transition: opacity 0.55s ease, transform 0.55s ease, filter 0.55s ease, text-shadow 0.6s ease;
+}
+
+.lyric-char.lit {
+  opacity: 1;
+  transform: translateY(0);
+  filter: blur(0);
+  text-shadow: 0 0 16px rgba(248, 186, 129, 0.65);
+}
+
+.lyric-quote cite {
+  display: block;
+  margin-top: 36px;
+  padding-top: 20px;
+  border-top: 1px solid rgba(248, 186, 129, 0.25);
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 1.15rem;
+  letter-spacing: 0.5px;
+  color: var(--color-text-muted);
+  opacity: 0;
+  transition: opacity 0.8s ease;
+}
+
+.lyric-quote cite.show { opacity: 1; }
+
+@media (max-width: 991px) {
+  .lyric-quote::before { font-size: 5.5rem; top: -22px; }
+  .lyric-quote {
+    margin: 0 auto;
+    padding: 24px 16px 16px 26px;
+  }
+  .lyric-stanza { margin-bottom: 20px; }
+  .lyric-quote p { font-size: 1.4rem; }
 }
 
 @media (max-width: 991px) {
@@ -620,5 +827,5 @@ a { color: var(--color-cream); transition: color 0.25s ease, background 0.25s ea
 
 @media (prefers-reduced-motion: reduce) {
   .reveal, .hero-anim { opacity: 1; transform: none; animation: none; transition: none; }
-  .bg-fixed, .disco-marquee-track, .disco-cover-placeholder, h2::after { animation: none; transition: none; }
+  .bg-fixed, .disco-marquee-track, .disco-cover-placeholder, .stage-marquee-track, h2::after { animation: none; transition: none; }
 }
