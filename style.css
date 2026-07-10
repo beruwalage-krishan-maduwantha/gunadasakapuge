@@ -91,6 +91,7 @@ a { color: var(--color-cream); transition: color 0.25s ease, background 0.25s ea
   font-size: 0.96em;
   font-family: var(--font-sinhala);
   font-style: normal;
+  font-weight: 600;
 }
 
 /* SCROLL REVEAL */
