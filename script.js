@@ -105,7 +105,7 @@ document.addEventListener('DOMContentLoaded', function () {
   var lyricQuote = document.querySelector('.lyric-quote');
   if (lyricQuote) {
     var lyricLines = Array.prototype.slice.call(lyricQuote.querySelectorAll('p'));
-    var lyricCite = lyricQuote.querySelector('cite');
+    var lyricSignature = lyricQuote.querySelector('.lyric-signature');
 
     var hasSegmenter = typeof Intl !== 'undefined' && typeof Intl.Segmenter === 'function';
     var segmenter = hasSegmenter ? new Intl.Segmenter('si', { granularity: 'grapheme' }) : null;
@@ -132,7 +132,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     function revealChar(index) {
       if (index >= allChars.length) {
-        if (lyricCite) lyricCite.classList.add('show');
+        if (lyricSignature) lyricSignature.classList.add('show');
         return;
       }
       allChars[index].classList.add('lit');
