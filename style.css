@@ -708,14 +708,18 @@ a { color: var(--color-cream); transition: color 0.25s ease, background 0.25s ea
   display: block;
   margin-top: 36px;
   margin-left: auto;
-  height: 80px;
+  height: 90px;
   width: auto;
   opacity: 0;
-  filter: brightness(0) invert(1);
-  transition: opacity 0.8s ease;
+  transform: translateY(10px) scale(0.92);
+  filter: brightness(0) invert(1) drop-shadow(0 0 12px rgba(248, 186, 129, 0.45));
+  transition: opacity 0.9s ease, transform 0.9s ease;
 }
 
-.lyric-signature.show { opacity: 0.9; }
+.lyric-signature.show {
+  opacity: 0.95;
+  transform: translateY(0) scale(1);
+}
 
 @media (max-width: 991px) {
   .lyric-quote::before { font-size: 5.5rem; top: -22px; }
