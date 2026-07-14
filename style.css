@@ -706,8 +706,9 @@ a { color: var(--color-cream); transition: color 0.25s ease, background 0.25s ea
 
 .lyric-signature {
   display: block;
-  margin-top: 8px;
+  margin-top: -20px;
   margin-left: auto;
+  margin-right: 60px;
   height: 90px;
   width: auto;
   opacity: 0;
